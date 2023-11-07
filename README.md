@@ -57,16 +57,10 @@ git-crypt unlock path/to/key
 
 ### GPG key
 
-First, the person we want to authorize needs to create their own GPG key. While creating it, they will be asked to enter an e-mail address:
+First, the person we want to authorize needs to create their own GPG key. While creating it, they will be asked to enter name and e-mail address:
 
 ```
 gpg --gen-key
-```
-
-After that, they need to list the keys and copy the key ID:
-
-```
-gpg --list-keys
 ```
 
 After that, they need to list the keys and copy the key ID:
@@ -86,7 +80,7 @@ Share these public key files among your team members.
 Add the trusted ***GPG public keys*** to your git-crypt configuration:
 
 ```
-git-crypt add-gpg-user <public_key.gpg>
+git-crypt add-gpg-user <team_member_GPG_key_id>
 ```
 
 Now, the team members can ***unlock*** the files using below command
