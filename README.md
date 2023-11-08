@@ -72,10 +72,15 @@ gpg --list-keys
 Export the GPG public key
 
 ```
-gpg --export --armor <your_email@example.com> > public_key.gpg
+gpg --export --armor <your_email@example.com> > public_key.asc
 
 ```
-Share these public key files among your team members.
+
+Share these public key files among your team members and ***import the GPG key*** to the keyring.
+
+```
+gpg --import public_key.asc
+```
 
 Add the trusted ***GPG public keys*** to your git-crypt configuration:
 
@@ -83,8 +88,14 @@ Add the trusted ***GPG public keys*** to your git-crypt configuration:
 git-crypt add-gpg-user <team_member_GPG_key_id>
 ```
 
-Now, the team members can ***unlock*** the files using below command
+Now, the team members can ***unlock*** the files using the below command
 
 ```
 git-crypt unlock
+```
+
+Similarly, they can lock it back using the below command
+
+```
+git-crypt lock
 ```
